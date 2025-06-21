@@ -46,3 +46,16 @@ R8C(R5Fxxxx) BOOT Mode3 <-> Real port (bayt manipulate)<-> Virtual ComPort <-> M
 
 **Developed for quick R8C FDT flashing in modern systems.**
 
+
+
+
+
+
+
+**Demo**  
+[![Watch the demo](https://img.youtube.com/vi/djGYxQSHl3w/0.jpg)](https://youtu.be/djGYxQSHl3w)
+
+
+
+
+
