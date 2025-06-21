@@ -31,11 +31,11 @@ This project is a graphical user interface (GUI) tool built with Python and PyQt
 
 The `Boot` button:
 1. Controls **DTR** and **RTS** to trigger MODE 3 entry.
-2. Sends synchronization bytes (0x00, 0xB0).
+2. Sends synchronization bytes (7*0x00, 0xB0  only 9600bps).
 3. Performs an ID check via serial.
 
 ## ▶ How to Use
-
+R8C(R5Fxxxx) BOOT Mode3 <-> Real port (bayt manipolate)<-> Virtual ComPort <-> Mode2 FDT
 1. Connect the hardware and create a virtual COM pair using com0com.
 2. Start the app using `run_gui.bat` or `main.exe`.
 3. Select real and virtual ports from dropdowns.
