@@ -1,23 +1,48 @@
-# Shema71FDT
+# 🛠 Serial Bridge GUI for Renesas FDT
 
-A tool for communicating with and programming R8C microcontrollers using the  protocol MODE3.
+This project is a graphical user interface (GUI) tool built with Python and PyQt5. It is designed to facilitate serial communication between a real COM port (connected to a Renesas microcontroller) and a virtual COM port used by Renesas Flash Development Toolkit (FDT).
 
-## Overview
+## 📦 Features
 
-This project provides a Python-based graphical interface (PyQt5) for initializing and transferring data via real or virtual COM ports. It supports:
+- Graphical control of serial bridge between two COM ports (real ↔ virtual)
+- Ability to boot a Renesas R8C microcontroller into **MODE 3** (via DTR/RTS control)
+- Automatic or manual FDT launching
+- ID check command (verifies communication with target MCU)
+- Echo filtering to prevent feedback between Rx and Tx (important in hardware loopback setups)
+- Real-time log console for serial events
 
-- Mode 2 / Mode 3 reset sequences
-- FDT protocol header detection
-- Flash programming with debug logging
+## 📂 Files
 
-## Features
+| File | Description |
+|------|-------------|
+| `main.py` | Main GUI script, handles UI and logic for port control and FDT launching |
+| `serial_bridge_class.py` | Background thread-based class that handles the serial bridging and echo filtering |
+| `Screen01.ui` | PyQt5 UI layout file created with Qt Designer |
+| `run_gui.bat` | Batch file to start the app via `main.py` |
+| `dist/main.exe` | (Optional) Standalone compiled version using `pyinstaller` |
 
-- Real/Virtual COM support
-- GUI-based user interaction
-- Echo handling and synchronization
-- R8C-compatible FDT mode timing
+## 🧰 Requirements
 
-## How to Run
+- Python 3.8+ (if not using EXE)
+- `pyqt5`, `pyserial`
+- Virtual COM ports created using [com0com](https://sourceforge.net/projects/com0com/)
 
-1. Requires Python 3.10+
-2. Install dependencies:
+## ⚙️ Boot Sequence
+
+The `Boot` button:
+1. Controls **DTR** and **RTS** to trigger MODE 3 entry.
+2. Sends synchronization bytes (0x00, 0xB0).
+3. Performs an ID check via serial.
+
+## ▶ How to Use
+
+1. Connect the hardware and create a virtual COM pair using com0com.
+2. Start the app using `run_gui.bat` or `main.exe`.
+3. Select real and virtual ports from dropdowns.
+4. Click `Boot` to enter programming mode.
+5. Click `Start FDT` to launch Renesas FDT.
+
+---
+
+**Developed for quick R8C FDT flashing in modern systems.**
+
