@@ -35,7 +35,7 @@ The `Boot` button:
 3. Performs an ID check via serial.
 
 ## ▶ How to Use
-R8C(R5Fxxxx) BOOT Mode3 <-> Real port (bayt manipolate)<-> Virtual ComPort <-> Mode2 FDT
+R8C(R5Fxxxx) BOOT Mode3 <-> Real port (bayt manipulate)<-> Virtual ComPort <-> Mode2 FDT
 1. Connect the hardware and create a virtual COM pair using com0com.
 2. Start the app using `run_gui.bat` or `main.exe`.
 3. Select real and virtual ports from dropdowns.
